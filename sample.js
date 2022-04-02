@@ -1,4 +1,5 @@
 var count=0
+var good=30
 function sayhello(){
     if( chktick.checked)
         count++

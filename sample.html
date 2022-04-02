@@ -4,18 +4,25 @@
         <script type ="text/javascript" src="sample.js">
 
         </script>
+        <script type="text/javascript" src="sample2.js">
+            
+        </script>
+    
 
     </head>
     <body>
         <form>
-            <label for="chktick" >
-            <input type="checkbox" id="chktick" onclick="sayhello()" value="add to cart"/><br>
+            <label for="chktick" >One
+            <input type="checkbox" id="chktick" name="One" onclick="sayhello()" value="add to cart"/><br>
             </label>
-            <label for="chktick1">
-            <input type="checkbox" id="chktick1" onclick="sayhello1()" value="add to cart"/><br>
+            <label for="chktick1">Two
+            <input type="checkbox" id="chktick1" name="Two"onclick="sayhello1()" value="add to cart"/><br>
             </label>
-            <input type="button" onclick="display()" value="total"/>
-            <p>hello there</p>
+            <input type="button" onclick="display()" value="total"/><br>
+            <input type="button" onclick="checkbox()" value="display"/>
+            <ul id="list">
+                
+            </ul>
         </form>
     </body>
 </html>
