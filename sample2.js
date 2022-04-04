@@ -7,4 +7,10 @@ function checkbox(){
         ul.appendChild(li)
     }
 }
+function remove(){
+    var ul=document.getElementById("list")
+    while(ul.hasChildNodes()){
+        ul.removeChild(ul.firstChild);
+    }
+}   
 
