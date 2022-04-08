@@ -1,0 +1,16 @@
+<html>
+<head>
+    <title>Json Sample</title>
+</head>
+<body>
+    <p id="add"></p>
+    <script>
+    var obj1={"name":"Ratish","age":20,"city":"Chennai"}
+    var jtojson=JSON.stringify(obj1)
+    localStorage.setItem("identity",jtojson)
+    var obj2=localStorage.getItem("identity")
+    var obj3=JSON.parse(obj2)
+    document.getElementById("add").innerHTML=obj3.name
+    </script>
+</body>
+</html>
