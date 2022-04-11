@@ -5,7 +5,7 @@
 // 		'X-RapidAPI-Key': 'a2b3696b06msh3643087001677ecp1a5298jsnc61e31b57145'
 // 	}
 // };
-
+var uni_count=0
 async function get_meaning(query){
 const api_url="https://www.googleapis.com/books/v1/volumes?q="+query
 const response = await fetch(api_url)
@@ -40,9 +40,13 @@ for(var i=0;i<10;i++){
     document.getElementById("author"+i).textContent="Author= "+author
     document.getElementById("pub_date"+i).textContent="Published Date= "+pub_date
     const line=document.createElement("hr")
-    document.body.appendChild(line)
+    uni_count+=1
+    if(uni_count<11){
+        document.body.appendChild(line)
+    }
+    }
 }
-}
+
 function getname(){
     const query=textbox.value
     get_meaning(query).catch(error =>{
@@ -51,8 +55,5 @@ function getname(){
     })
 }
 
-get_meaning().catch(error =>{
-    console.log("error")
-    console.error(error)
-})
+
 // .catch(err => console.error(err));
