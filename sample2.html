@@ -2,30 +2,40 @@
     <head>
        
         <h1 >api calling</h1>
+        <!-- <script type="text/javascript" src="Callingapi.js"></script> -->
        
     </head>
     <body>
         
-        <p id="demo">
-
+        <p>
+        Latitude= <span id="lat"></span>°<br>
+        Longitude= <span id="lon"></span>°
         </p>
-        <!-- <script type="text/javascript" src="Callingapi.js"></script> -->
-        <script>
-            catchjson().catch(error =>{
-                console.log('error');
-                console.error(error);
-            });
-            async function catchjson () {
-                const response = await fetch('https://jsonplaceholder.typicode.com/users');
-                const myJson = await response.json();
-                // const name=JSON.parse(myJson);
-                document.getElementById("demo").innerHTML =myJson[1].address.street;
-                // for (int)
-            }
-            document.getElementById("demo").innerHTML ="hello";
-            
 
+
+        <script >
+            const api_url='https://api.wheretheiss.at/v1/satellites/25544'
+            async function catchjson () {
+            const api_url='https://api.wheretheiss.at/v1/satellites/25544'
+            const response = await fetch(api_url);
+            const myJson = await response.json();
+            console.log(myJson.latitude)
+            const {latitude,longitude}= myJson;  
+            document.getElementById("lat").textContent=latitude
+            document.getElementById("lon").textContent=longitude
+            // document.getElementById("lon").textContent=myJson.longitude
+            // const name=JSON.parse(myJson);
+            // document.getElementById("demo").innerHTML =myJson[1].address.street;
+            // for (int)
+            }
+            catchjson().catch(error =>{
+            console.log('error');
+            console.error(error);
+            });
+            setInterval(catchjson,1000)
+            document.getElementById("demo").innerHTML ="hello";
         </script>
+ 
         
     </body>
 </html>
