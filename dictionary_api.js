@@ -8,11 +8,14 @@
 var uni_count=0
 async function get_meaning(query){
 const api_url="https://www.googleapis.com/books/v1/volumes?q="+query
-const response = await fetch(api_url)
+const response = await fetch(api_url+"&maxResults=40")
+// const response2= await fetch(api_url+"&startIndex=10")
 const myJson= await response.json()
+// const myJson2= await response2.json()
 // console.log(myJson.items[9])
-console.log(myJson.items[9].volumeInfo)	
-for(var i=0;i<10;i++){
+console.log(myJson)
+// console.log(myJson2)
+for(var i=0;i<40;i++){
     const tit=document.createElement("SPAN")
     tit.setAttribute("id","title"+i)
     document.body.appendChild(tit)
@@ -41,7 +44,7 @@ for(var i=0;i<10;i++){
     document.getElementById("pub_date"+i).textContent="Published Date= "+pub_date
     const line=document.createElement("hr")
     uni_count+=1
-    if(uni_count<11){
+    if(uni_count<40){
         document.body.appendChild(line)
     }
     }
